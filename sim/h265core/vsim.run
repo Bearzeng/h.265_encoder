@@ -1,0 +1,19 @@
+#!/bin/bash
+
+uname -a | grep -i linux
+if [ $? -eq 0 ]
+then
+  export NOVAS_LIB=/eda/synopsys/verdi201412/share/PLI/MODELSIM/LINUX/novas_fli.so
+fi
+
+uname -a | grep -i cygwin
+if [ $? -eq 0 ]
+then
+  export NOVAS_LIB=C:/EDA/Novas/Debussy/share/PLI/modelsim_pli/WINNT/novas.dll
+fi
+
+echo "`sed '/set[ \t]NOVAS_LIB/'d sim.do`" > sim.do
+echo "`sed "/vlib/i\\set NOVAS_LIB $NOVAS_LIB" sim.do`" > sim.do
+
+vsim -c -do sim.do
+

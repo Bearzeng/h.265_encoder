@@ -1,0 +1,6 @@
++libext+.v        //Specifies file extensions for the files in a source library directory.
+-vlog01compat     //Ensures compatibility with rules of IEEE Std 1364-2001.
++acc              //Enables PLI and debug command access to design objects that would otherwise become unavailable due to optimizations.
+-incr
+-work ./work      //Specifies a logical name or pathname of a library that is to be mapped to the logical library work.
+-f ./enc_file.f

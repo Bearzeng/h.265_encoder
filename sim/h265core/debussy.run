@@ -1,0 +1,15 @@
+#!/bin/bash
+#vsim -do sim.do
+#debussy -f TOP_rtl.f -ssf wave.fsdb -2001
+if uname -a | grep -i linux
+then
+    NOVAS=novas
+fi
+
+if uname -a | grep -i cygwin
+then
+    NOVAS=debussy
+fi
+
+$NOVAS -f enc_file.f -2001
+
